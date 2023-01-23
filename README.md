@@ -6,4 +6,4 @@ Demonstração sobre como chamar um script em outra linguagem e acessar os dados
 
 ## Rodando
     npm start
-- Após realizar chamada ao [endpoint](http://localhost:3000/) utilizando o navegador, curl, postman, etc.
+- Após, realizar chamada ao [endpoint](http://localhost:3000/) utilizando o navegador, curl, postman, etc.
