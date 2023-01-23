@@ -5,29 +5,29 @@ const pythonFile = 'index.py';
 const pythonCommand = 'python3';
 
 async function pythonRequest({
-  url,
-  headers,
-  filePath
+	url,
+	headers,
+	filePath
 }) {
-  const pythonProcess = spawn(
-    pythonCommand, 
-    [
-      pythonFile, 
-      JSON.stringify({url, headers, filePath})
-    ]);
-    const stringData = [];
+	const pythonProcess = spawn(
+		pythonCommand, 
+		[
+			pythonFile, 
+			JSON.stringify({url, headers, filePath})
+		]);
+	const stringData = [];
 
-    for await (const data of pythonProcess.stdout) {
-    stringData.push(data.toString());
-    }
+	for await (const data of pythonProcess.stdout) {
+		stringData.push(data.toString());
+	}
 
-    return stringData.join('');
+	return stringData.join('');
 }
 
 const result = await pythonRequest({
-  url: 'http://localhost:3000',
-  headers: {'Content-Type': 'application/json'},
-  filePath: './database.csv',
-})
+	url: 'http://localhost:3000',
+	headers: {'Content-Type': 'application/json'},
+	filePath: './database.csv',
+});
 
 console.log(result);
