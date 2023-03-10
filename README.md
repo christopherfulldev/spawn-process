@@ -5,5 +5,8 @@ Demonstração sobre como chamar um script em outra linguagem e acessar os dados
 - Aplicação desenvolvida utilizando módulos nativos não possui dependências.
 
 ## Rodando
+Na raiz do projeto:
     npm start
-- Após, realizar chamada ao [endpoint](http://localhost:3000/) utilizando o navegador, curl, postman, etc.
+
+- Após, vá para pasta uploads:
+    node index.js
