@@ -8,5 +8,5 @@ Demonstração sobre como chamar um script em outra linguagem e acessar os dados
 Na raiz do projeto:
     npm start
 
-- Após, vá para pasta uploads:
+Após, vá para pasta uploads:
     node index.js
