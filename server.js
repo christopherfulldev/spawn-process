@@ -4,6 +4,8 @@ import { randomUUID } from 'crypto';
 import {pipeline} from 'stream/promises';
 import { createWriteStream } from 'fs';
 
+import job from './job.js';
+
 async function requestHandler(request, response) {
 	const fileName = `file-${randomUUID()}.csv`;
 
