@@ -3,8 +3,7 @@ import { spawn } from 'child_process';
 
 const pythonFile = 'index.py';
 const pythonCommand = 'python3';
-
-async function pythonRequest({
+export async function pythonRequest({
 	url,
 	headers,
 	filePath
@@ -13,13 +12,21 @@ async function pythonRequest({
 		pythonCommand, 
 		[
 			pythonFile, 
-			JSON.stringify({url, headers, filePath})
-		]);
+			JSON.stringify(
+				{
+					url,
+					headers,
+					filePath
+				}
+			)
+		]
+	);
 	const stringData = [];
-
+	
 	for await (const data of pythonProcess.stdout) {
 		stringData.push(data.toString());
 	}
+
 
 	return stringData.join('');
 }
