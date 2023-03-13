@@ -3,32 +3,42 @@ import { spawn } from 'child_process';
 
 const pythonFile = 'index.py';
 const pythonCommand = 'python3';
-export async function pythonRequest({
-	url,
-	headers,
-	filePath
-}) {
-	const pythonProcess = spawn(
-		pythonCommand, 
-		[
-			pythonFile, 
-			JSON.stringify(
-				{
-					url,
-					headers,
-					filePath
-				}
-			)
-		]
-	);
-	const stringData = [];
-	
-	for await (const data of pythonProcess.stdout) {
-		stringData.push(data.toString());
+
+export function pythonRequest(
+	{
+		url,
+		headers,
+		filePath,
 	}
+) {
+	return new Promise((resolve, reject) => {
+		const pythonProcess = spawn(
+			pythonCommand,
+			[
+				pythonFile,
+				JSON.stringify(
+					{
+						url,
+						headers,
+						filePath,
+					}
+				),
+			]
+		);
+		const stringData = [];
 
+		pythonProcess.stdout.on('data', (data) => {
+			stringData.push(data.toString());
+		});
 
-	return stringData.join('');
+		pythonProcess.stderr.on('data', (data) => {
+			reject(data.toString());
+		});
+
+		pythonProcess.on('close', () => {
+			resolve(stringData.join(''));
+		});
+	});
 }
 
 const result = await pythonRequest({
