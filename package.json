@@ -13,5 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.32.0"
+  },
+  "dependencies": {
+    "node-cron": "^3.0.2"
   }
 }
