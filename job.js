@@ -16,6 +16,6 @@ const job = CronJob.schedule('*/10 * * * * *',
 			});
 	});
 
-await job.start();
+job.start();
 
 export default job;
