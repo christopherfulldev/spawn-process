@@ -1,14 +1,14 @@
 # Spawn-process 
-Demonstração sobre como chamar um script em outra linguagem e acessar os dados.
+ - Aplicação que executa uma rotina "X" em um linguagem "Y" e cria um arquivo baseado nos dados obtidos.
+ - Foi adicionado um agendamento para que a requisição ocorra de forma autônoma a cada 10 segundos.
+ - Feche corretamente a aplicação utilizando 'CRTL + C' para evitar que o processo continue rodando em segundo plano.
 
 ## Instalação
-- Aplicação desenvolvida utilizando módulos nativos não possui dependências.
+- Lembrando que a aplicação possui dois níveis para simular a comunicação, então é necessário a execução do comando abaixo em ambos os níveis.
+
+        npm install
 
 ## Rodando
-- Na raiz do projeto:
-    
-        npm start
+- Correr:
 
-- Após, vá para pasta uploads:
-    
-        node index.js
+        npm start
